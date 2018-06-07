@@ -15,20 +15,20 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ContactType extends AbstractType
 {
-	public function buildForm(FormBuilderInterface $builder, array $options)
-	{
-		$builder
-		->add('email', EmailType::class)
-		->add('subject', TextType::class, array(
-			'constraints' => array(
-				new NotBlank(),
-				new Length(array('min' => 5))
-				)
-			))
-		->add('message', TextareaType::class, array(
-			'constraints' => new Length(array('min' => 50, 'max' => 1000)),
-			))
-		->add('submit', SubmitType::class)
-		;
-	}
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+        ->add('email', EmailType::class)
+        ->add('subject', TextType::class, array(
+            'constraints' => array(
+                new NotBlank(),
+                new Length(array('min' => 5))
+                )
+            ))
+        ->add('message', TextareaType::class, array(
+            'constraints' => new Length(array('min' => 50, 'max' => 1000)),
+            ))
+        ->add('submit', SubmitType::class)
+        ;
+    }
 }
