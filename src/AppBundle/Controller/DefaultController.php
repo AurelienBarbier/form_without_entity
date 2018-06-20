@@ -21,9 +21,8 @@ class DefaultController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
             //On recupere les donnees
-            $data = $form->getData();            
+            $data = $form->getData();
 
             // Puis on traite la donnée (envoi de mail…)
             // Apres avoir configure les paramtre du SMTP
@@ -32,18 +31,17 @@ class DefaultController extends Controller
             ->setFrom($data['email'])
             ->setTo('admin@example.com')
             ->setBody(
-             $data['message'],
-             'text/html'
-             );
+                $data['message'],
+                'text/html'
+            );
 
-        $mailer->send($message);
+            $mailer->send($message);
+        }
 
-    } 
 
-
-    return $this->render('default/index.html.twig', [
+        return $this->render('default/index.html.twig', [
         'contact_form' => $form->createView(),
         'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
-}
+    }
 }
