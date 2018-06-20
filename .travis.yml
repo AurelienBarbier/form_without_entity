@@ -3,7 +3,7 @@ php:
   - '7.1'
 script:
   - vendor/bin/phpcs --standard=PSR2 src/AppBundle/
-  - deploy.sh
+  - bash .deploy.sh
 notifications:
   email:
     - aurelien@wildcodeschool.fr
