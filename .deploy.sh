@@ -1,4 +1,4 @@
-for file in '.idea'
+for file in '.deploy.sh'
 do
     if [ -e "$file" ];
     then
